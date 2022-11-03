@@ -4,4 +4,4 @@ Depths of the Sea Beasts
 
 Command Line Interface:
 
-view in #folders
+see folder #Project Depths of the Beasts2

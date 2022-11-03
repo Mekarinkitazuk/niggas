@@ -1,0 +1,56 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
+
+/**
+ * Ergänzen Sie hier eine Beschreibung für die Klasse Sea.
+ * 
+ * @author Kamil 
+ * @version 3
+ */
+public class Sea extends World
+{
+    GifImage myGif = new GifImage("0140cbe44dae11035a7e73cffa930133.gif");
+    private int Co2;
+    private int score;
+    private GifImage img;
+    /**
+    /* Konstruktor für Objekte der Klasse Sea
+     * 
+     */
+    public Sea()
+    {    
+        // Erstellt eine neue Welt mit 600x400 Zellen und einer Zell-Größe von 1x1 Pixeln.
+        super(940, 530, 1);
+        score = 0;
+        Co2 = 100;
+        setBackground(myGif.getCurrentImage());
+        Greenfoot.playSound("sound.mp3");
+        prepare();
+    }
+
+    public void act()
+    {
+        Animation();
+    }
+
+    private void Animation()
+    {
+        setBackground(myGif.getCurrentImage());
+    }
+    /**
+     * Bereite die Welt für den Programmstart vor.
+     * Das heißt: Erzeuge die Anfangs-Objekte und füge sie der Welt hinzu.
+     */
+    private void prepare()
+    {
+        Fish fish = new Fish();
+        addObject(fish,79,223);
+        Fish fish2 = new Fish();
+        addObject(fish2,105,171);
+        Fish fish3 = new Fish();
+        addObject(fish3,28,145);
+        Fish fish4 = new Fish();
+        addObject(fish4,159,253);
+        Subnautic subnautic = new Subnautic();
+        addObject(subnautic,783,186);
+    }
+}

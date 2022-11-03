@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Subnautic
+comment0.text=\r\n\ Erg\u00E4nzen\ Sie\ hier\ eine\ Beschreibung\ f\u00FCr\ die\ Klasse\ Subnautic.\r\n\ \r\n\ @author\ (Ihr\ Name)\ \r\n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ tut,\ was\ auch\ immer\ Subnautic\ tun\ will.\ Diese\ Methode\ wird\ aufgerufen,\ \r\n\ sobald\ der\ 'Act'\ oder\ 'Run'\ Button\ in\ der\ Umgebung\ angeklickt\ werden.\ \r\n
+comment2.params=
+comment2.target=void\ checkKeys()
+comment3.params=changeX\ changeY
+comment3.target=void\ move(int,\ int)
+numComments=4

@@ -1,0 +1,49 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
+
+/**
+ * Ergänzen Sie hier eine Beschreibung für die Klasse Subnautic.
+ * 
+ * @author (Ihr Name) 
+ * @version (eine Versionsnummer oder ein Datum)
+ */
+public class Subnautic extends Actor
+{
+    /**
+     * Act - tut, was auch immer Subnautic tun will. Diese Methode wird aufgerufen, 
+     * sobald der 'Act' oder 'Run' Button in der Umgebung angeklickt werden. 
+     */
+    public void act() 
+    {
+        checkKeys();
+           int speed = 4;
+        if(Greenfoot.isKeyDown("up"))
+        setLocation(getX(), getY() - speed);
+        if(Greenfoot.isKeyDown("down"))
+        setLocation(getX(), getY() + speed);
+        if(Greenfoot.isKeyDown("left"))
+        setLocation(getX() - speed, getY());
+        if(Greenfoot.isKeyDown("right"))
+        setLocation(getX() + speed, getY());
+    }
+    
+    public void checkKeys()
+    {
+        if(Greenfoot.isKeyDown("a"))
+        {
+            setRotation(-10);
+        }
+        if(Greenfoot.isKeyDown("d"))
+        {
+            setRotation(10);
+        }
+    }
+    
+    public void move(int changeX, int changeY)
+    {
+        int x = getX();
+        int y = getY();
+        int newX = x + changeX;
+        int newY = y + changeY;
+        setLocation(newX, newY);
+    }
+}

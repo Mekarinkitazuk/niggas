@@ -1,0 +1,24 @@
+--04.11.2022--
+neuer zufallgenerator für erzeugung der Akteur.
+
+this.addObject( new Fish, Greenfoot.getRandomNumber(this.getWidth()),Greenfoot.getRandomNumber(this.getHeight()));
+
+this - ist ein zeichen für *dieses ein Class* in diesen fall ist das das World (die Welt).
+Fish - ist unser Akteur Class (es kann in jedes anderes gewechselt werden)
+die methode addObject funktioniert NUR in der World class. Es würde uns hiermit helfen, das die bosse bzw. die Fische in zufallinger stelle erzeugt werden.
+
+als nächstes hätte ich die Methode isTouching.
+wenn ich die methode isTouching aufrufe mit Subnautic.Class könnte man removeTouching(Subnautic.class) ausführen und man würde dann verlieren, weil der Akteur gegessen wurde,
+um das spiel nach dem es ausgeführt wird zu stoppen (man kann ja weiter nicht spielen), könnte man die methode Greenfoot.stop(); benutzen.
+Dazu noch könnte man die methode Greenfoot.playSound("name des sounds") ausführen um das Sound beim fressen aus zu spielen
+also heißt es;
+
+if ( isTouching(Subnautic.class) )
+{
+  removeTouching(Subnautic.class);                //-- Hier Entfernt die methode das Jenige class welches es berührt hat
+  Greenfoot.playSound("au.wav");                  //-- Hier wird das sound bei der methode touching (fressen) gespielt
+  Greenfoot.stop();                               //-- Stoppt das spiel nach dem der Akteur gefressen wurde
+}
+
+Das code nutzt man bei dem Enemy, welches den Akteur (Spielbarer Charackter) töten bzw. auffressen soll.
+___________________________________________________________________________________________________________________________________________________________

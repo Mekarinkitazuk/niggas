@@ -1,0 +1,99 @@
+Hallo zusammen, hier wird unser Animation in format PNG erklärt.
+Wir können das Objekt animieren indem man paar bilder in das Commando "switchImage" einführt.
+Als beispiel habe ich Crab04 szenario genommen und füge dies hier ein, damit sie es alle versteht.
+Für die animation brauchen wir auch ein timer, ein counter, welches die animation verlangsamt. Sonst wird es sehr schnelle bullshit welches ganze zeit sich drehen wird.
+Code;
+
+
+    private int speed = [Zahl]
+    private GreenfootImage stand; [Steh bild]
+    private GreenfootImage move; [Gehendes bild]
+    private int counter = 0;
+    
+    
+public void act() [Act methode heißt das es sich beim interaction sich die unten stehenden commanden ausführen soll]
+    {
+        checkKeypress();
+        lookForWorm();
+    
+    }
+    
+                                                   // Dies ist eine normalle checkKeypress commande (heißt das es guckt, ob einer der taste gedrückt ist). Wir fügen unsere weitere commande rein um eine Animation und bewegung zu führen.
+    
+public void checkKeypress()
+    {
+        if (Greenfoot.isKeyDown("left")) 
+        {
+            moveLeft();      [Commando aus jeder void Move, welches zeigt wohin er während des drückens der taste hingeht]
+            walk();          [Commando aus Walk, setzt den timer und wechselt die images nach dem man die taste drückt]
+        }
+        if (Greenfoot.isKeyDown("right")) 
+        {
+            moveRight();
+            walk();
+        }
+        if (Greenfoot.isKeyDown("up"))
+        {
+            moveUp();
+            walk();
+        }
+        if (Greenfoot.isKeyDown("down"))
+        {
+            moveDown();
+            walk();
+        }
+    }
+    
+                                            // Dies ist die Move commande, nur in detailiesierter way. Halt keine zahlen mehr sondern einfach int speed
+    
+    }
+    public void moveRight()
+    {
+         setLocation(getX()+speed, getY());
+    }
+    public void moveLeft()
+    {
+        setLocation(getX()-speed, getY());
+    }
+    public void moveUp()
+    {
+        setLocation(getX(), getY()-speed);
+    }
+    public void moveDown()
+    {
+        setLocation(getX(), getY()+speed);
+    }
+
+                                          // Hier wird das alles spannend, denn hier fängt es an die bilder zu wechseln!
+
+public void switchImage()
+    {
+        if (getImage() == stand)
+        {
+            setImage(move);
+        } else {
+            setImage(stand);
+        }
+    }
+    
+                                          // Das ist die commande um unsere png dateien zu bennen, quasi "stand" ist das bild wo die crabbe steht und "move" wo die krabbe ihr füße einzieht. Sodurch wird es animiert!
+                                        
+   
+       public Crab()
+    {
+        stand = new GreenfootImage("crab.png"); [Steht | Standart]
+        move = new GreenfootImage("crab2.png"); [Bewegt | Move]
+        setImage(stand);
+    }
+    
+                                          // Hier ist die commande welche in isKeyDown vorkommt und diese ist das Counter zwischen switchen der images.
+    
+    
+    public void walk()
+    {
+        if (counter == 5) counter = 0;
+        if (counter == 0) setImage(stand);
+        if (counter == 2) setImage(move);
+        
+        counter++;
+    }

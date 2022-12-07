@@ -1,0 +1,66 @@
+import greenfoot.*;
+
+// Klasse für den Schauspieler
+public class Actor extends Actor
+{
+    private GreenfootImage[] images; // Bilder für Animation
+    private int currentImage = 0; // Aktuelles Bild
+    private int imageChangeDelay = 5; // Verzögerung zwischen Bildwechseln
+    private int imageChangeTimer = 0; // Timer für Bildwechsel
+    
+    // Konstruktor
+    public Actor()
+    {
+        // Lade Bilder für Animation
+        images = new GreenfootImage[] {
+            new GreenfootImage("actor1.png"),
+            new GreenfootImage("actor2.png"),
+            new GreenfootImage("actor3.png")
+        };
+    }
+    
+    public void act()
+    {
+        // Erhöhe Timer
+        imageChangeTimer++;
+        
+        // Wenn Timer abgelaufen ist...
+        if (imageChangeTimer >= imageChangeDelay)
+        {
+            // ... setze Timer zurück ...
+            imageChangeTimer = 0;
+            
+            // ... und wechsle zum nächsten Bild
+            currentImage++;
+            if (currentImage >= images.length)
+            {
+                currentImage = 0;
+            }
+            
+            // Setze Bild für Schauspieler
+            setImage(images[currentImage]);
+        }
+        
+        // Bewege Schauspieler nach unten
+        setLocation(getX(), getY() + 2);
+        
+        // Wenn Schauspieler unten angekommen ist...
+        if (getY() >= getWorld().getHeight() - 50)
+        {
+            // ... bewege Schauspieler nach oben
+            setLocation(getX(), 0);
+        }
+    }
+}
+
+// Klasse für die Welt
+public class SeaWorld extends World
+{
+    public SeaWorld()
+    {
+        super(800, 600, 1);
+        
+        // Erstelle Schauspieler
+        addObject(new Actor(), 400, 300);
+    }
+}
